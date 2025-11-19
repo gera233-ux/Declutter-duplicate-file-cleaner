@@ -19,7 +19,7 @@ Declutter is an easy-to-use Electron application designed to help professionals 
 
 ### Setup Steps
 1. Clone this repository:
-   ```bash
+   ```bash https://github.com/gera233-ux/Declutter-duplicate-file-cleaner.git
    
    cd Declutter-duplicate-file-cleaner
    ```
@@ -34,7 +34,9 @@ Declutter is an easy-to-use Electron application designed to help professionals 
 1. Start the application:
    ```bash
    npm start
+
    ```
+  Download the .exe file from itch.io ;- https://gera-dev.itch.io/declutter
 
 2. Select the folders you want to scan for duplicate files by clicking "📁 Select Folders".
 
@@ -76,3 +78,4 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 ## Author
 
 Developed by Your gera233
+
