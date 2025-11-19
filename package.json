@@ -1,0 +1,44 @@
+{
+  "name": "declutter",
+  "version": "1.0.0",
+  "description": "Easy-to-use app that finds and removes duplicate files to free up disk space",
+  "main": "main.js",
+  "scripts": {
+    "start": "npx electron .",
+    "build": "electron-builder",
+    "build-win": "electron-builder --win"
+  },
+  "keywords": [
+    "duplicate",
+    "files",
+    "cleaner",
+    "storage"
+  ],
+  "author": "gera233",
+  "license": "MIT",
+  "devDependencies": {
+    "@electron/rebuild": "^4.0.1",
+    "electron": "22.0.0",
+    "electron-builder": "^24.0.0",
+    "electron-reload": "^2.0.0-alpha.1",
+    "png-to-ico": "^1.0.0",
+    "sharp": "^0.32.0"
+  },
+  "optionalDependencies": {
+    "electron-reload": "^2.0.0"
+  },
+  "build": {
+    "appId": "com.declutter.app",
+    "productName": "Declutter",
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": [
+        "nsis",
+        "zip"
+      ],
+      "icon": "iconapp.png"
+    }
+  }
+}

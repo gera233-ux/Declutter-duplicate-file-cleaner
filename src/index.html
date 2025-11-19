@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Content Security Policy: disallow unsafe-eval to remove Electron security warning during development -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data:; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:;">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Declutter - Professional Duplicate File Cleaner</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- App Header -->
+        <header class="app-header">
+            <div class="header-content">
+                <h1>Declutter</h1>
+                <p>Smart duplicate file cleaner for professionals. Streamline your storage and optimize system performance.</p>
+            </div>
+        </header>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Step 1: Folder Selection -->
+            <section class="setup-section">
+                <h2>Step 1: Choose Folders to Scan</h2>
+                <div class="folder-controls">
+                    <button id="selectFoldersBtn" class="btn btn-primary">
+                        📁 Select Folders
+                    </button>
+                    <button id="startScanBtn" class="btn btn-success" disabled>
+                        🔍 Start Scanning
+                    </button>
+                </div>
+
+                <div class="scan-options">
+                    <h3>Scan Method:</h3>
+                    <select id="scanMode" class="scan-mode-select">
+                        <option value="exact">Exact Duplicates (Hash-based, balanced speed)</option>
+                        <option value="sizeOnly">Size Only (Fastest, basic matching)</option>
+                        <option value="filename">Filename Match (Same name in different folders)</option>
+                        <option value="date">Date Modified (Same modification date)</option>
+                        <option value="content">Content-based (Text files only, thorough)</option>
+                    </select>
+                </div>
+
+                <div class="selected-folders">
+                    <h3>Folders to Scan:</h3>
+                    <div id="foldersList" class="folders-list">
+                        <p class="empty-message">No folders selected yet</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Step 2: Scanning Progress -->
+            <section id="progressSection" class="progress-section" style="display: none;">
+                <h2>Step 2: Scanning Files</h2>
+                <div class="progress-display">
+                    <div id="scanNotification" class="scan-notice" style="display: none;">Scanning started</div>
+                    <div class="progress-bar">
+                        <div id="progressBar" class="progress-fill"></div>
+                    </div>
+                    <div class="progress-text">
+                        <span id="progressMessage">Preparing to scan...</span>
+                        <span id="fileCount">0 files found</span>
+                        <span id="scanCounts" style="margin-left:1rem;">Hashed: 0 / 0</span>
+                        <button id="cancelScanBtn" class="btn btn-outline" style="margin-left:1rem;">✖ Cancel Scan</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Step 3: Results -->
+            <section id="resultsSection" class="results-section" style="display: none;">
+                <h2>Step 3: Review Duplicate Files</h2>
+                
+                <div class="results-header">
+                    <div class="results-info">
+                        <span id="resultsSummary">Found 0 duplicate files</span>
+                        <span id="spaceSaved">Can free up: 0 MB</span>
+                    </div>
+                    <div class="results-actions">
+                        <button id="selectAllBtn" class="btn btn-outline">✓ Select All</button>
+                        <button id="deleteSelectedBtn" class="btn btn-danger">🗑️ Delete Selected</button>
+                        <button id="startAgainBtn" class="btn btn-primary">⟲ Start Again</button>
+                    </div>
+                </div>
+
+                <div id="resultsContainer" class="results-container">
+                    <!-- Duplicate files will appear here -->
+                </div>
+            </section>
+        </main>
+
+        <!-- App Footer -->
+        <footer class="app-footer">
+            <p>© 2024 Declutter - Trusted by millions worldwide for efficient file management</p>
+        </footer>
+    </div>
+
+    <!-- Connect our JavaScript files -->
+    <script src="js/scanner.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/renderer.js"></script>
+</body>
+</html>
